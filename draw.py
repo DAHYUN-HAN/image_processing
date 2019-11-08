@@ -2,13 +2,20 @@
  "cells": [
   {
    "cell_type": "code",
-   "execution_count": 1,
+   "execution_count": 2,
    "metadata": {},
    "outputs": [],
    "source": [
     "import cv2\n",
-    "import numpy as np\n",
-    "\n",
+    "import numpy as np"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 12,
+   "metadata": {},
+   "outputs": [],
+   "source": [
     "mode = 0;\n",
     "\n",
     "font = cv2.FONT_HERSHEY_SIMPLEX\n",
@@ -27,8 +34,17 @@
     "        elif mode == 2 :\n",
     "            position = \"(\"+str(x)+\",\"+str(y)+\")\"\n",
     "            cv2.putText(img,position,(x,y), font, 0.5,(255,255,255),1,cv2.LINE_AA)\n",
-    "        \n",
-    "            \n",
+    "    if event == cv2.EVENT_MOUSEMOVE:\n",
+    "        position = \"(\"+str(x)+\",\"+str(y)+\")\"\n",
+    "        cv2.putText(img,position,(x,y), font, 0.5,(255,255,255),1,cv2.LINE_AA)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 13,
+   "metadata": {},
+   "outputs": [],
+   "source": [
     "img = np.zeros((512,512,3), np.uint8)\n",
     "cv2.namedWindow('image')\n",
     "cv2.setMouseCallback('image',draw_circle)\n",
@@ -40,13 +56,6 @@
     "\n",
     "cv2.destroyAllWindows()"
    ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "metadata": {},
-   "outputs": [],
-   "source": []
   },
   {
    "cell_type": "code",
